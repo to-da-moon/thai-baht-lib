@@ -71,7 +71,7 @@ const combine = (baht: string, satang: string) => {
   return result
 }
 
-const bathText = (num: number) => {
+const bahtText = (num: number) => {
   let result = defaultResult
 
   if (isNaN(num)) return result
@@ -98,4 +98,4 @@ const bathText = (num: number) => {
   return result
 }
 
-export {bathText}
+export {bahtText}
