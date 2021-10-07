@@ -1,0 +1,25 @@
+{
+  "name": "thai-bath-lib",
+  "version": "0.0.1",
+  "description": "Test desc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/to-da-moon/thai-bath-lib.git"
+  },
+  "keywords": [
+    "thaibath"
+  ],
+  "author": "Pakorn S <pakorn.sub5@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/to-da-moon/thai-bath-lib/issues"
+  },
+  "homepage": "https://github.com/to-da-moon/thai-bath-lib#readme",
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  }
+}
