@@ -1,4 +1,4 @@
-#Acknowledgements
+## Acknowledgements
 
 This library is free software. We just make it easier for us to get the thai baht.
 
@@ -11,6 +11,6 @@ send in the number and you will get thai baht result
 bahtText(1) //-----> หนึ่งบาทถ้วน
 bahtText(100) //-----> หนึ่งร้อยบาทถ้วน
 
-#Future Plan
+## Future Plan
 
 Let me know what to upgrade
