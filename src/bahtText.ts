@@ -98,4 +98,4 @@ const bahtText = (num: number) => {
   return result
 }
 
-export {bahtText}
+export default bahtText

@@ -1,6 +1,6 @@
 {
-  "name": "thai-baht-lib",
-  "version": "0.0.1",
+  "name": "@to-da-moon/thai-baht-lib",
+  "version": "0.0.7",
   "description": "Test desc",
   "license": "MIT",
   "homepage": "https://github.com/to-da-moon/thai-baht-lib#readme",
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/to-da-moon/thai-baht-lib/issues"
   },
-  "main": "index.js",
+  "main": "src/index.ts",
   "files": [
     "*",
     "**/*"
@@ -33,7 +33,7 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3"
   },
-  "dependencies": {
+  "author": "Pakorn S <pakorn.sub5@gmail.com>",
+  "author": "Apiporn S <faithinyouuu@gmail.com>"
 
-  }
 }
