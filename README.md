@@ -1,6 +1,8 @@
 
 ## Acknowledgements
 
+Support both js and ts
+
 This library is free software. We just make it easier for us to get the thai baht.
 
 ## Getting Started
