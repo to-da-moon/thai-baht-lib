@@ -18,9 +18,10 @@ Improve version from bath.js
     
 ## Benchmark
 MacBook Pro (15-inch, 2016)
+```
 bahtLatest (x100000): 1886ms
 thaiBahtLib (x100000): 1755ms
-
+```
 
 
 ## Getting Started
