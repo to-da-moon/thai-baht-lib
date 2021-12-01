@@ -34,6 +34,8 @@
     "typescript": "^4.4.3"
   },
   "author": "Pakorn S <pakorn.sub5@gmail.com>",
-  "author": "Apiporn S <faithinyouuu@gmail.com>"
-
+  "author": "Apiporn S <faithinyouuu@gmail.com>",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  }
 }
