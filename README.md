@@ -1,4 +1,4 @@
-<span class="badge-npmversion"><a href="https://npmjs.org/package/@to-da-moon/thai-bath-lib" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@to-da-moon/thai-baht-lib.svg" alt="NPM version" /></a></span> <!-- <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@to-da-moon/thai-bath-lib" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@to-da-moon/thai-bath-lib.svg" alt="NPM downloads" /></a></span> --> [![install size](https://packagephobia.com/badge?p=%40to-da-moon%2Fthai-baht-lib)](https://packagephobia.com/result?p=%40to-da-moon%2Fthai-baht-lib)
+<span class="badge-npmversion"><a href="https://npmjs.org/package/@to-da-moon/thai-baht-lib" title="View this project on NPM"><img src="https://img.shields.io/npm/v/@to-da-moon/thai-baht-lib.svg" alt="NPM version" /></a></span> <!-- <span class="badge-npmdownloads"><a href="https://npmjs.org/package/@to-da-moon/thai-bath-lib" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/@to-da-moon/thai-bath-lib.svg" alt="NPM downloads" /></a></span> --> [![install size](https://packagephobia.com/badge?p=%40to-da-moon%2Fthai-baht-lib)](https://packagephobia.com/result?p=%40to-da-moon%2Fthai-baht-lib)
 
 
 ## Acknowledgements
@@ -18,9 +18,10 @@ Improve version from bath.js
     
 ## Benchmark
 MacBook Pro (15-inch, 2016)
+```
 bahtLatest (x100000): 1886ms
 thaiBahtLib (x100000): 1755ms
-
+```
 
 
 ## Getting Started
