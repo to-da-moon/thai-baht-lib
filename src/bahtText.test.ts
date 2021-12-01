@@ -1,6 +1,6 @@
 import {bahtText} from './';
 // const { bahtText } = require('./bahtText')
-const defaultResult = 'ศูนย์บาทถ้วน'
+const defaultResult = false
 jest.autoMockOff()
 
 describe('digit', () => {

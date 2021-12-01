@@ -1,101 +1,101 @@
-const defaultResult = 'ศูนย์บาทถ้วน'
-const singleUnitStringArr = [
-  '',
-  'หนึ่ง',
-  'สอง',
-  'สาม',
-  'สี่',
-  'ห้า',
-  'หก',
-  'เจ็ด',
-  'แปด',
-  'เก้า'
-]
-const placeNameStringArr = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน']
+const ONE = 'หนึ่ง'
+const TWO = 'สอง'
+const THREE_TO_NINE = ['สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า']
+const ED = 'เอ็ด'
+const YEE = 'ยี่'
+const LAN = 'ล้าน'
+const EMPTY = ''
+const DIGIT = [EMPTY, 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน']
+const ONES = [EMPTY, ED, TWO, ...THREE_TO_NINE]
+const TENS = [EMPTY, ...[EMPTY, YEE, ...THREE_TO_NINE].map(t => t + DIGIT[1])]
+const SUB_HUNDRED = TENS.flatMap(t => ONES.map(o => t + o))
+SUB_HUNDRED[1] = ONE
+const SUB_TEN = [EMPTY, ONE, TWO, ...THREE_TO_NINE]
 
-const num2Word = (nums: number[]): string => {
-  let result = ''
-  const len = nums.length
-  const maxLen = 7
+function numberToWords(num: string): string {
+  let output = EMPTY
+  const length = num.length
 
-  if (len > maxLen) {
-    // more than million
-    const overflowIndex = len - maxLen + 1
-    const overflowNums = nums.slice(0, overflowIndex)
-    const remainingNumbs = nums.slice(overflowIndex)
-    return num2Word(overflowNums) + 'ล้าน' + num2Word(remainingNumbs)
-  } else {
-    for (let i = 0; i < len; i++) {
-      const digit = nums[i]
-      if (digit > 0) {
-        result += singleUnitStringArr[digit] + placeNameStringArr[len - i - 1]
-      }
+  for (let i = 0; i < length; i++) {
+    const d = num[i]
+    const di = length - i - 1
+    const diMod = di % 6
+    const isSib = diMod === 1
+    // 1234567890123450
+    //หนึ่งพันสองร้อยสามสิบสี่ล้านห้าแสนหกหมื่นเจ็ดพันแปดร้อยเก้าสิบล้านหนึ่งแสนสองหมื่นสามพันสี่ร้อยห้าสิบบาทถ้วน
+    // หนึ่งพันสิบห้าล้านเจ็ดแสนสองหมื่นสี่พันเจ็ดร้อยสามสิบบาทถ้วน
+    if (d === '0') {
+      // No-op
+    } else if (isSib && d === '1') {
+      output += DIGIT[diMod]
+    } else if (isSib && d === '2') {
+      output += YEE + DIGIT[diMod]
+    } else if (!diMod && d === '1' && i) {
+      output += ED
+    } else {
+      output += SUB_TEN[Number(d)] + DIGIT[diMod]
+    }
+
+    if (!diMod && di) {
+      output += LAN
     }
   }
 
-  return result
+  return output
 }
 
-const grammarFix = (str: string) => {
-  let result = str
+export default function bahtText(userInput: number | string): string | boolean {
+  let baht: number
+  let bahtStr: string
+  let satang: number
+  let isNegative = false
+  let input: number
 
-  // "สิบ"
-  result = result.replace('หนึ่งสิบ', 'สิบ')
-  // "ยี่สิบ"
-  result = result.replace('สองสิบ', 'ยี่สิบ')
-  // "เอ็ด"
-  const neungLen = 5
-  if (
-    result.length > neungLen &&
-    result.length - result.lastIndexOf('หนึ่ง') === neungLen
-  ) {
-    result = result.substr(0, result.length - neungLen) + 'เอ็ด'
-  }
+  if (typeof userInput === 'number') {
+    if(userInput >Number.MAX_SAFE_INTEGER)
+      return false
+    input = userInput
 
-  return result
-}
-
-const combine = (baht: string, satang: string) => {
-  let result = ''
-
-  if (baht === '' && satang === '') {
-    result = defaultResult
-  } else if (baht !== '' && satang === '') {
-    result = baht + 'บาท' + 'ถ้วน'
-  } else if (baht === '' && satang !== '') {
-    result = satang + 'สตางค์'
   } else {
-    result = baht + 'บาท' + satang + 'สตางค์'
+    console.log(userInput)
+    console.log(Number(userInput))
+    console.log(isNaN(Number(userInput)))
+    input = Number(userInput)
+    if (isNaN(input) || input >Number.MAX_SAFE_INTEGER){
+      return false
+    }
+    // หนึ่งแสนสองหมื่นสามพันสี่ร้อยห้าสิบหกล้านเจ็ดแสนแปดหมื่นเก้าพันสิบสองบาทถ้วน
+    // undefined        หมื่นหนึ่งพันเก้าสิบเจ็ดล้านสองแสนหกหมื่นสองพันห้าร้อยเจ็ดสิบสองบาทถ้วน
+    // หนึ่งพันสี่ร้อยสิบล้านหกหมื่นห้าพันสี่ร้อยเจ็ดบาทถ้วน"
   }
 
-  return result
+  if (input < 0) {
+    isNegative = true
+    input = -input
+  }
+  baht = input | 0
+  satang = Number.isInteger(input) ? 0 : (Math.round(input * 100) |0)%100
+  bahtStr = '' + baht
+
+  if (!baht && !satang) {
+    return 'ศูนย์บาทถ้วน'
+  }
+
+  let output = isNegative ? 'ลบ' : EMPTY
+
+  // Baht
+  output += numberToWords(bahtStr)
+
+  // Satang
+  if (satang) {
+    if (baht) output += 'บาท'
+
+    // Faster!
+    output += SUB_HUNDRED[satang] + 'สตางค์'
+    // output += numberToWords(satang.toString()) + 'สตางค์';
+  } else {
+    output += 'บาทถ้วน'
+  }
+
+  return output
 }
-
-const bahtText = (num: number) => {
-  let result = defaultResult
-
-  if (isNaN(num)) return result
-  if (num >= Number.MAX_SAFE_INTEGER) return result
-
-  /** @type {string} */
-  const bahtStr = Math.floor(num).toString()
-  /** @type {string} */
-  const satangStr = Math.round((num % 1) * 100).toString()
-
-  /** @type {number[]} */
-  const bahtArr = Array.from(bahtStr).map(Number)
-  /** @type {number[]} */
-  const satangArr = Array.from(satangStr).map(Number)
-
-  let baht = num2Word(bahtArr)
-  let satang = num2Word(satangArr)
-
-  baht = grammarFix(baht)
-  satang = grammarFix(satang)
-
-  result = combine(baht, satang)
-
-  return result
-}
-
-export default bahtText
