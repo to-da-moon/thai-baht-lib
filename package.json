@@ -26,7 +26,8 @@
     "test": "jest",
     "benchmark": "node ./benchmark",
     "minify": "jsmin -o dist/index.min.js dist/index.js",
-    "build": "npx tsc && npm run minify"
+    "minify2": "jsmin -o dist/bahtText.min.js dist/bahtText.js",
+    "build": "npx tsc && npm run minify && npm run minify2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
