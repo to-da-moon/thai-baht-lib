@@ -35,6 +35,5 @@
   },
   "author": "Apiporn S <faithinyouuu@gmail.com>",
   "dependencies": {
-    "baht": "^0.6.0"
   }
 }
