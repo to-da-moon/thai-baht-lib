@@ -9,6 +9,13 @@ This library is free software. We just make it easier for us to get the thai bah
 
 Improve version from bath.js 
 
+## Improvement
+1. Completely change original code to be from bathjs as it has better performance
+2. Fix string 01 showing เอ็ด problem
+3. Round satang to be 2 decimal place not just always rounddown
+4. When satang reach 999 round it to the decimal place
+5. Improve speed from bathjs
+    
 ## Benchmark
 MacBook Pro (15-inch, 2016)
 bahtLatest (x100000): 1886ms
@@ -46,5 +53,4 @@ bahtText(100)
 ```
 
 ## Plan
-
 - [ ] Let me know what to upgrade, just create issue for us, we will do it.

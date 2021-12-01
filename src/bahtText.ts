@@ -12,17 +12,6 @@ const SUB_HUNDRED = TENS.flatMap(t => ONES.map(o => t + o))
 SUB_HUNDRED[1] = ONE
 const SUB_TEN = [EMPTY, ONE, TWO, ...THREE_TO_NINE]
 
-//fail
-// function SUB_HUNDRED_FUNC(input:number) {
-//
-//   const s2 = input%10
-//   const s1 =  (input/10 |0)
-//   if(input===1){
-//     return 'หนึ่ง'
-//   }
-//   return   (TENS[s1]||'') + ONES[s2]
-//
-// }
 function numberToWords(num: string): string {
   let output = EMPTY
   const length = num.length
@@ -50,19 +39,6 @@ function numberToWords(num: string): string {
     if (!diMod && di) {
       output += LAN
     }
-  //   if (d === '0') {
-  //   } else if (isSib && d === '1') {
-  //     output += DIGIT[diMod]
-  //   } else if (isSib && d === '2') {
-  //     output += YEE + DIGIT[diMod]
-  //   } else if (!diMod && d === '1' && i) {
-  //     output += ED
-  //   } else {
-  //     output += SUB_TEN[Number(d)] + DIGIT[diMod]
-  //   }
-  //   if (!diMod && di) {
-  //     output += LAN
-  //   }
   }
   return output
 }
