@@ -7,6 +7,15 @@ Support both js and ts
 
 This library is free software. We just make it easier for us to get the thai baht.
 
+Improve version from bath.js 
+
+## Benchmark
+MacBook Pro (15-inch, 2016)
+bahtLatest (x100000): 1886ms
+thaiBahtLib (x100000): 1755ms
+
+
+
 ## Getting Started
 
 Send in the number to get thai baht result in string format
