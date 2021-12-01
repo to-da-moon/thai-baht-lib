@@ -17,6 +17,7 @@ function numberToWords(num: string): string {
   const length = num.length
 
   for (let i = 0; i < length; i++) {
+    //9999999999
     const d = num[i]
     const di = length - i - 1
     const diMod = di % 6
@@ -57,24 +58,20 @@ export default function bahtText(userInput: number | string): string | boolean {
     input = userInput
 
   } else {
-    console.log(userInput)
-    console.log(Number(userInput))
-    console.log(isNaN(Number(userInput)))
     input = Number(userInput)
     if (isNaN(input) || input >Number.MAX_SAFE_INTEGER){
       return false
     }
-    // หนึ่งแสนสองหมื่นสามพันสี่ร้อยห้าสิบหกล้านเจ็ดแสนแปดหมื่นเก้าพันสิบสองบาทถ้วน
-    // undefined        หมื่นหนึ่งพันเก้าสิบเจ็ดล้านสองแสนหกหมื่นสองพันห้าร้อยเจ็ดสิบสองบาทถ้วน
-    // หนึ่งพันสี่ร้อยสิบล้านหกหมื่นห้าพันสี่ร้อยเจ็ดบาทถ้วน"
   }
 
   if (input < 0) {
     isNegative = true
     input = -input
   }
-  baht = input | 0
-  satang = Number.isInteger(input) ? 0 : (Math.round(input * 100) |0)%100
+
+
+  satang = Number.isInteger(input) ? 0 : (Math.round(input * 100))%100
+  baht = Number.isInteger(input) ? input :Math.floor(input)
   bahtStr = '' + baht
 
   if (!baht && !satang) {
