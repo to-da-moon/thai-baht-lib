@@ -17,32 +17,36 @@
     "**/*"
   ],
   "keywords": [
-    "baht","typescript", "thai-language", "thai"
+    "baht",
+    "typescript",
+    "thai-language",
+    "thai"
   ],
   "scripts": {
     "test": "jest",
-    "benchmark": "node ./benchmark"
+    "benchmark": "node ./benchmark",
+    "minify": "jsmin -o dist/index.min.js dist/index.js",
+    "build": "npx tsc && npm run minify"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
+    "@size-limit/preset-small-lib": "^6.0.0",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.2.4",
-    "jest": "^27.2.4",
-    "prettier": "^2.4.1",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.3",
-    "@size-limit/preset-small-lib": "^6.0.0",
     "baht": "^0.6.0",
     "bahttext": "^2.0.2",
     "husky": "^7.0.2",
+    "jest": "^27.2.4",
+    "jsmin": "^1.0.1",
+    "prettier": "^2.4.1",
     "size-limit": "^6.0.0",
     "thai-baht-text": "^1.0.8",
-    "thai-baht-text-ts": "^1.0.5"
+    "thai-baht-text-ts": "^1.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
-  "author": "Apiporn S <faithinyouuu@gmail.com>",
   "author": "Pakorn S <pakorn.sub5@gmail.com>",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
