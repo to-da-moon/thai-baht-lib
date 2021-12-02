@@ -7,7 +7,7 @@ Support both js and ts
 
 This library is free software. We just make it easier for us to get the thai baht.
 
-Improve version from bath.js 
+Improve version of bath.js (faster and more reliable)
 
 ## Improvement
 1. Completely change original code to be from bathjs as it has better performance
@@ -17,11 +17,11 @@ Improve version from bath.js
 5. Improve speed from bathjs
     
 ## Benchmark
+
 MacBook Pro (15-inch, 2016)
-```
-bahtLatest (x100000): 1886ms
-thaiBahtLib (x100000): 1755ms
-```
+* bahtLatest (x100000): 1886ms
+* thaiBahtLib (x100000): 1755ms
+
 
 
 ## Getting Started
